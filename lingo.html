@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home | CSC</title>
+	<link rel="stylesheet" href="css/main.css">
+
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1"/> 
+  	<meta name="viewport" content="width=device-width" /> 
+
+
+	<!-- Load JQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script src="js/enquire.js"></script>
+
+	<script src="js/menu.js"></script>
+
+	<script src="js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="js/moment.min.js"></script>
+	<script src="js/clock.js"></script>
+
+</head>
+<body>
+	<header>
+		<div class="headerContent">
+		<h1><a href="index.html">CSC</a></h1>
+			<nav>
+				<ol>
+					<li><a href="index.html">HOME</a></li>
+					<li id="current"><a href="lingo.html">THE LINGO</a></li>
+					<li><a href="improvements.html">IMPROVEMENTS</a></li>
+					<li><a href="examples.html">EXAMPLES</a></li>
+				</ol>			
+			</nav>
+		</div>
+	</header>
+
+	<div id="rule"></div>
+
+	<div class="main">
+		<article>
+			<div id="hide"><i class="fa fa-bars fa-2x"></i></div>
+			<div id="show"><i class="fa fa-bars fa-2x"></i></div>
+			<h1>Fundamentals of a Scripting Language</h1>
+
+			<p>A scripting language is a high level language which is interpreted by a program, such as a web browser, at runtime, rather than being compiled beforehand. As a result scripting languages such as JavaScript, Python etc are often slower than other languages such as C++ and Java. An example of the speed differences between scripting languages versus compiled can be seen in the table below. To be fair all tests have been completed three times, with a mean average - and run on the same computer - Intel Atom N450 1.66GHz, 1GB RAM, Linux 3.2.0-4-686-pae.
+			</p> 
+			
+			<div class="speedTable" >
+                <table >
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td >
+                            1
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            Mean
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            C
+                        </td>
+                        <td> 
+							41.131
+                        </td>
+                        <td>
+                           42.248
+                        </td>
+                        <td>
+                        	43.518
+                        </td>
+                        <td>
+							42.299
+                        </td>
+                    </tr>
+                    <tr>
+                     	<td >
+                            C++
+                        </td>
+                        <td> 
+							43.22
+                        </td>
+                        <td>
+                           44.54
+                        </td>
+                        <td>
+                        	41.781
+                        </td>
+                        <td>
+							43.180
+                        </td>
+                    </tr>
+                    <tr>
+                     	<td >
+                            Python
+                        </td>
+                        <td> 
+							48.297
+                        </td>
+                        <td>
+                           47.861
+                        </td>
+                        <td>
+                        	48.682
+                        </td>
+                        <td>
+							48.280
+                        </td>
+                    </tr>
+                    <tr>
+                     	<td >
+                            Ruby
+                        </td>
+                        <td> 
+							69.342
+                        </td>
+                        <td>
+                           69.535
+                        </td>
+                        <td>
+                        	69.364
+                        </td>
+                        <td>
+							69.414
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+			<div id="graph-wrapper">
+				<iframe id="graph" src="http://docs.google.com/a/mavieson.co.uk/spreadsheets/d/1wH9LWeSz-CZ9xio5TgXSeHuv0pXCTdkIQ2Pt0E9bpYg/gviz/chartiframe?oid=665964268" seamless frameborder=0 scrolling=no></iframe>
+	        	<p class="caption">Graph not displaying properly? No Problem, see the origional <a href="https://docs.google.com/spreadsheets/d/1wH9LWeSz-CZ9xio5TgXSeHuv0pXCTdkIQ2Pt0E9bpYg/edit?usp=sharing">here</a></p>
+	        </div>
+
+	        <p>
+	        	The test above shows the difference in time taken for each of the programming languages above to count to one million and print to the screen, using the terminal. C and C++ are both compiled beforehand into a native language for the systems processor, and as a result are faster than Python and (very noticeably) Ruby. 
+	        </p>
+
+	        <h2>Why do we need Scripting Languages?</h2>
+
+	        <p>
+	        	After looking at the performance shortcomings of scripting languages, you may be left wondering why we need them. Native programs will always be faster as they are already compiled and ready to run, scripting languages need to be interpreted into a language the computer can understand at real time, and this is always slow. The benefits of scripting languages however is that they are completely platform independent. Be it Linux, Android, Windows, iOS etc you can guarantee that the results will be the same. This is especially useful in responsive design as with the awesomeness of HTML5 and CSS3, we have JavaScript which allows for Client Side Customization to get very cool on all devices.
+	        </p>
+
+
+		</article>
+		<aside>
+			<br>
+			<hr>
+			<br>
+			<p>Client Side Customisation is dedicated to bringing you the latest in client side technology on the Web. Feel free to browse or drop us a question on our Contact page. </p>
+			<br>
+			<hr>
+			<br>
+			<p id="social">
+				<a href="https://plus.google.com/u/0/+JmamaDaviess/posts" title="Google+" alt="Google+"><i class="fa fa-google-plus-square"></i></a>
+				<a href="https://twitter.com/mrjimbotd" title="Twitter" alt="Twitter"><i class="fa fa-twitter-square"></i></a>
+				<a href="https://en-gb.facebook.com/jmama95" title="Facebook" alt="Facebook"><i class="fa fa-facebook-square"></i></a>
+				<a href="http://www.tumblr.com/search/mr+bean" title="Tumblr" alt="Tumblr"><i class="fa fa-tumblr-square"></i></a>
+				<a href="http://gabrielecirulli.github.io/2048/" title="GitHub" alt="GitHub"><i class="fa fa-github-square"></i></a>
+			</p>
+			<br>
+		</aside>
+		<div class="disqus">
+			<hr>
+			    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'cscjmama'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+		</div>
+	</div>
+	<footer>
+		<div class="footer-content">
+			<div class="footer-about">
+				<h6>JAMES DAVIES</h6>
+				<p>Client Side Customisation is dedicated to bringing you the latest in client side technology on the Web. Feel free to browse or drop us a question on our Contact page. </p>
+
+			</div>
+			<div class="footer-nav">
+				<h6>MORE STUFF</h6>
+				<p>
+					<li><a href="contact.html">CONTACT US</a></li>
+					<li><a href="privacy.html">PRIVACY POLICY</a></li>
+					<li><a href="sitemap.xml">SITEMAP</a></li>
+					<li><a href="http://webtech.mavieson.co.uk">WEBTECH</a></li>
+					<li><a href="http://mavieson.co.uk">MAVIESON</a></li>
+					<li><a id="backtotop" style="cursor: pointer">BACK TO TOP</a></li>
+				</p>
+			</div>
+			<div class="footer-logo" onclick="location.href='http://csc.mavieson.co.uk';" style="cursor: pointer">
+				<div class="logo-large">C</div>
+				<div class="logo-small">LIENT</div> 
+				<div class="logo-large"> S</div>
+				<div class="logo-small">IDE</div>
+				<div class="logo-large"> C</div>
+				<div class="logo-small">USTOMISATION</div>
+			</div>	
+			<span id = "copyright"><p>©WebTech 2013-2014 - James Davies | Created Using Valid <a href="http://www.w3.org/TR/html5/" alt="HTML Five">HTML5</a> and <a href="http://www.w3.org/TR/CSS/" alt="CSS3">CSS3</a></p></span>		
+		</div>		
+	</footer>
+
+	<!-- JS -->
+
+	<script src="js/back2top.js"></script>
+	<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'cscjmama'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    
+</body>
+</html>

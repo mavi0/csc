@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home | CSC</title>
+	<link rel="stylesheet" href="css/main.css">
+
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1"/> 
+  	<meta name="viewport" content="width=device-width" /> 
+
+
+	<!-- Load JQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script src="js/enquire.js"></script>
+
+	<script src="js/menu.js"></script>
+
+	<script src="js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<script src="js/moment.min.js"></script>
+	<script src="js/clock.js"></script>
+
+	<script type="text/javascript" src="js/syntaxhighlighter/shCore.js"></script>
+	<script type="text/javascript" src="js/syntaxhighlighter/shBrushJScript.js"></script>
+	<script type="text/javascript" src="js/syntaxhighlighter/shBrushCss.js"></script>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+
+</head>
+<body>
+	<header>
+		<div class="headerContent">
+		<h1><a href="index.html">CSC</a></h1>
+			<nav>
+				<ol>
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="lingo.html">THE LINGO</a></li>
+					<li id="current"><a href="improvements.html">IMPROVEMENTS</a></li>
+					<li><a href="examples.html">EXAMPLES</a></li>
+				</ol>			
+			</nav>
+		</div>
+	</header>
+
+	<div id="rule"></div>
+
+	<div class="main">
+		<article>
+			<div id="hide"><i class="fa fa-bars fa-2x"></i></div>
+			<div id="show"><i class="fa fa-bars fa-2x"></i></div>
+			<h1>How Scripting Languages Improve Functionality</h1>
+
+			<p>
+				Scripting languages (such as javascript) on the web are interpreted by a web browser and are used to improve functionality on a web page. Scripting languages are there to provide interaction with the user in the form of validation, dynamic interfaces and animations. Client Side Customisation relies (or did rely) heavily on scripting languages such as javascript for dynamic features such as animations or transitions etc, however with the advent of newer versions of HTML (HTML5) and CSS3 the requirements for javascript to do many things has been reduced. The benefit of using CSS3 animations versus JavaScript (JQuery Library) is the speed of which it executes, making for a smoother user experience, especially on low end devices such as netbooks and ARM devices such as mobile phones and tablets.
+			</p>
+			
+			<h2>Validation</h2>
+
+			<p>
+				Validating forms can be done using two methods; HTML5 Validation or javaScript. On the <a href="contact.html">Contact Us</a> page I have created two similar forms which both do the same thing - allow you to contact me, however one form uses JavaScript and the other uses HTML5. I will let you decide which method is “better” (cough cough HTML5) however for the sake of relevancy I will talk about JavaScript validation. To start with, below is a form using JavaScript validation, and below that is the source - which i will reference to using those handy line numbers. There are four main validation points looked at when validating a form:
+			</p>
+
+			<ol>
+				<li>Has the user left required fields empty?</li>
+				<li>Has the user entered a valid email address?</li>
+				<li>Has the user entered a valid date?</li>
+				<li>Has the user entered text in a numeric field?</li>
+			</ol>
+			
+			<p>
+				The first thing we want to check for is blank fields - what’s the point in sending no data at all? When the user clicks “Submit” the browser will run a script called contact.js. This script will put the content of the name, email and message fields into their own variables (lines 2, 3, 4) and then run through some if statements to see if they are blank or not, if a field is blank then it will alert the user that it is so (lines 6 - 25). 
+			</p>
+			<p>
+				The second relevant check is “Has the user entered a valid email address”. After we have checked for blanks the script goes on to check and see if the email is in a valid format - it can’t check to see if it is a real email address so this is as close as it can get to validating it through seeing if theres an @ symbol and no incorrect characters (lines 39 - 42).
+			</p>
+			<div class="code">
+				<pre class="brush: js;">
+function validateForm(){
+ var name = document.getElementById("jsname").value;
+ var email = document.getElementById("jsemail").value;
+ var comment = document.getElementById("jsmessage").value;
+ 
+ if (name == "")
+ {
+alert("Please Enter a Name")
+ document.getElementById("jsname").select();
+ document.getElementById("jsname").focus();
+ return false;
+ }
+ else if (email == "")
+ {
+alert("Please Enter an Email Address")
+ document.getElementById("jsemail").select();
+ document.getElementById("jsemail").focus();
+ return false;
+ }
+ else if (comment == "")
+ {
+alert("Please Enter a Message")
+ document.getElementById("jsmessage").select();
+ document.getElementById("jsmessage").focus();
+ return false;
+ }
+ if (!checkEmail(email))
+ {
+ alert('Email address is invalid');
+ return false;
+ }
+ else
+ {
+ // alert("Your Message Has Been Sent")
+ }
+ return true;
+}
+ 
+function checkEmail(inputvalue) {
+ var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+ return pattern.test(inputvalue);
+}
+				</pre>
+			</div>
+			<p>
+				And also the HTML for the contact form.
+			</p>
+			<div class="code">
+				<pre class="brush: js;">
+<div class="contact-form">
+	<form name="contact" action="contact.php" onsubmit="return validateForm()" method="post">
+
+		<fieldset style="border: 0;" class="field">
+		   <input type="text"s placeholder="Name" name="name" id="jsname"/><div class="required">*</div>
+		</fieldset>
+
+		<fieldset style="border: 0;" class="field">
+		   <input type="text" id="jsemail" placeholder="Email" name="email"/><div class="required">*</div>
+		</fieldset>
+
+		<fieldset style="border: 0;" class="field">
+		   <input type="text" id="phone" placeholder="Phone" name="phone"/>
+		</fieldset>
+		
+		<fieldset style="border: 0;" class="field">
+			<textarea name="message" id="jsmessage" placeholder="Message" name="message"></textarea>
+		</fieldset>
+
+   		<input class="field" type="submit" name="submit" id="submit" value="SUBMIT"/>
+	</form>
+</div>
+				</pre>
+			</div>
+			<p>
+				Below is the HTML for the HTML5 validation counterpart, as you can see just by defining the type as text, email or number etc and adding the required property it is doing all the validation for me.
+			</p>
+			<div class="code">
+				<pre class="brush: js;">
+<div class="contact-form">
+	<form id="contact" method="post" action="mailto:james@mavieson.co.uk" >
+	   <fieldset>
+
+	   		<fieldset style="border: 0;" class="field">
+			   <input type="text" id="custname" placeholder="Name" required/><div class="required">*</div>
+			</fieldset>
+
+			<fieldset style="border: 0;" class="field">
+			   <input type="email" id="email" placeholder="Email" required/><div class="required">*</div>
+			</fieldset>
+
+			<fieldset style="border: 0;" class="field">
+			   <input type="number" id="phone" placeholder="Phone"/>
+			</fieldset>
+			
+			<fieldset style="border: 0;" class="field">
+				<textarea name="message" id="message" placeholder="Message" required></textarea>
+			</fieldset>
+
+	   		<input class="field" type="submit" name="submit" id="submit" value="SUBMIT"/>
+
+			</fieldset>
+	</form>
+</div>
+				</pre>
+			</div>
+			<h3>Interactivity</h3>
+
+			<p>
+				JavaScript can also be used to make a web page interactive through the use of dynamic content and the like. For example a simple JavaScript calculator (<a href="examples.html">link</a>) is a perfect example of how easy it is to use javascript to create dynamic content. This calculator is very basic and simply allows the user to enter numbers and symbols to the main input (acting as the calculators “screen” if you like) and on the click of “=” it will calculate the answer. This calculator is VERY basic however and has no validation, therefore is likely to fall over if theres an error. 
+			</p>
+
+			<p>
+				Another example of dynamic content is a <a href="examples.html">clock</a>. Clocks on websites have very limited use as most operating systems will have a clock on display - so why the need for another? to be honest I don’t know, but heres an example of one anyway. This clock uses JavaScript and CSS3 to achieve its goal of appearing to be a digital BCD clock - thinking about it I should have made a binary clock - would’ve been something different.
+			</p>
+
+			<div id="clock" class="dark">
+				<div class="display">
+					<div class="weekdays"></div>
+					<div class="ampm"></div>
+					<div class="digits"></div>
+				</div>
+			</div>
+
+			<h4>Libraries</h4>
+
+			<p>
+				The awesome thing about JavaScript isn’t the simplicity, it isn’t the cross platform compatibility nor the fact it doesn’t fall over every time you forget a semi-colon. No. The awesome thing about javascript is the libraries and extensions; introducing <a href="http://jquery.com/">JQuery</a>, <a href="https://api.jquery.com/jQuery.ajax/">AJAX</a>, <a href="http://www.json.org/">JSON</a> etc. JQuery is an excellent library to make everything in JavaScript easier for the developer. Don’t believe me? Go ahead and grab the side of the web page and resize the webpage to mobile size (assuming of course you’re a desktop user). Now forgetting about the fact the whole webpage resized itself (thats CSS3 media query magic and not relevant to the point I’m making) concentrate your focus on the header and nav bar - disappeared right? Now do me a favour and click on the menu icon () at the top there. Sparkly responsive design made easy - and that should be copyrighted. 
+			</p>
+
+			<p>
+				You maybe wondering how many lines of code must be required to make the slidey animation and how horribly complex it must be to control JavaScript at different resolutions, well thankfully due to the <a href="http://jquery.com/">JQuery Library</a> and the <a href="http://wicky.nillia.ms/enquire.js/">Enquire Library</a> all that was (for me at least) only 33 lines of code, and so simple my dog Nell could understand it. 
+			</p>
+
+			<div class="code">
+				<pre class="brush: js;">
+$(document).ready(function(){
+
+   enquire.register("screen and (max-width:949px)", function() {
+
+    $("#show").slideDown("1");
+    $("#hide").hide();
+    $("#rule").slideDown("1");
+    $("header").slideUp("1");
+
+
+    $("#hide").click(function(){
+      $("header").slideUp("1");
+      $("#hide").hide();
+      $("#show").show();
+      $("#rule").show();
+    });
+
+    $("#show").click(function(){
+      $("header").slideDown("1");
+      $("#show").hide();
+      $("#hide").show();
+      $("#rule").hide();
+    });
+   });
+
+  enquire.register("screen and (min-width:950px)", function() {
+    $("header").slideDown("1");
+    $("#show").hide();
+    $("#hide").hide();
+    $("#rule").hide();
+  });
+
+});
+				</pre>
+			</div>
+
+		</article>
+		<aside>
+			<br>
+			<hr>
+			<br>
+			<p>Client Side Customisation is dedicated to bringing you the latest in client side technology on the Web. Feel free to browse or drop us a question on our Contact page. </p>
+			<br>
+			<hr>
+			<br>
+			<p id="social">
+				<a href="https://plus.google.com/u/0/+JmamaDaviess/posts" title="Google+" alt="Google+"><i class="fa fa-google-plus-square"></i></a>
+				<a href="https://twitter.com/mrjimbotd" title="Twitter" alt="Twitter"><i class="fa fa-twitter-square"></i></a>
+				<a href="https://en-gb.facebook.com/jmama95" title="Facebook" alt="Facebook"><i class="fa fa-facebook-square"></i></a>
+				<a href="http://www.tumblr.com/search/mr+bean" title="Tumblr" alt="Tumblr"><i class="fa fa-tumblr-square"></i></a>
+				<a href="http://gabrielecirulli.github.io/2048/" title="GitHub" alt="GitHub"><i class="fa fa-github-square"></i></a>
+			</p>
+			<br>
+		</aside>
+		<div class="disqus">
+			<hr>
+			    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'cscjmama'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+		</div>
+	</div>
+	<footer>
+		<div class="footer-content">
+			<div class="footer-about">
+				<h6>JAMES DAVIES</h6>
+				<p>Client Side Customisation is dedicated to bringing you the latest in client side technology on the Web. Feel free to browse or drop us a question on our Contact page. </p>
+
+			</div>
+			<div class="footer-nav">
+				<h6>MORE STUFF</h6>
+				<p>
+					<li><a href="contact.html">CONTACT US</a></li>
+					<li><a href="privacy.html">PRIVACY POLICY</a></li>
+					<li><a href="sitemap.xml">SITEMAP</a></li>
+					<li><a href="http://webtech.mavieson.co.uk">WEBTECH</a></li>
+					<li><a href="http://mavieson.co.uk">MAVIESON</a></li>
+					<li><a id="backtotop" style="cursor: pointer">BACK TO TOP</a></li>
+				</p>
+			</div>
+			<div class="footer-logo" onclick="location.href='http://csc.mavieson.co.uk';" style="cursor: pointer">
+				<div class="logo-large">C</div>
+				<div class="logo-small">LIENT</div> 
+				<div class="logo-large"> S</div>
+				<div class="logo-small">IDE</div>
+				<div class="logo-large"> C</div>
+				<div class="logo-small">USTOMISATION</div>
+			</div>	
+			<span id = "copyright"><p>©WebTech 2013-2014 - James Davies | Created Using Valid <a href="http://www.w3.org/TR/html5/" alt="HTML Five">HTML5</a> and <a href="http://www.w3.org/TR/CSS/" alt="CSS3">CSS3</a></p></span>		
+		</div>		
+	</footer>
+
+	<!-- JS -->
+
+	<script src="js/back2top.js"></script>
+	<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'cscjmama'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+.row{
+   display: :inline-block;
+   width: 300px;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+}
+
+.top{
+   display: :inline-block;
+   width: 250px;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+}
+
+.top .button{
+   width: 168px;
+}
+
+
+.row .button{
+   width: 40px;
+   margin-left: 0px;
+   margin-bottom: 10px;
+}
+
+.button{
+   background-color: #d64937;
+   color: #333;
+   border-color: 2px solid #333 !important;
+   border-radius: 4px;
+   display: inline-block;
+   padding: 5px;
+   font-family: 'Roboto Condensed', sans-serif;
+
+}
+
+.button:hover{
+   background-color: rgba(214, 73, 55, 0.7);
+   cursor: pointer;
+
+}
+
+.button:active{
+   cursor: pointer;
+   box-shadow: inset 0 0 10px #000000;
+   background-color: rgba(214, 73, 55, 0.7);
+}
+
+#input{
+   height: 40px;
+}

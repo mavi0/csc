@@ -1,0 +1,121 @@
+/*400px media query*/
+
+@media only screen and (max-width:600px) {
+
+header{
+	width: 100%;
+	height: 340px;
+}
+
+header h1{
+	text-align: center;
+}
+
+.headerContent{
+	width: 100%;
+	height: 100px;
+	margin: 0px auto 0px auto;
+}
+
+nav ol{
+	padding-left: 0px;
+	width: 100%;
+	margin: 0px auto 0px auto;
+	text-align: center;
+}
+
+nav li{
+	margin-top: 0px;
+	padding: 20px 0px 20px 0px;
+}
+
+/*nav li:hover{
+	background-color: #d64937;
+	color: #333333;
+}*/
+
+.main{
+	width: 100%;
+	min-height: 800px;
+	margin: 0px auto 0px auto;
+	box-shadow: 4px 0 8px -4px #999 , -4px 0 8px -4px #999;
+}
+
+article{
+	width: 100%;
+}
+
+article h1{
+	width: 75%;
+}
+
+.speedTable{
+	width: 90%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#graph-wraper{
+	overflow: scroll;
+	width: 90%;
+	height: 340px;
+}
+
+#graph{
+	width: 90%;
+	height: 340px;
+}
+
+
+aside{
+	width: 100%;
+
+
+}
+
+.disqus{
+	width: 100%;
+	margin: 0px auto 0px auto;
+}
+
+footer{
+	width: 100%;
+	height: 665px;
+	margin: 0px 0px 0px 0px;
+}
+
+.footer-content{
+	width: 100%;
+	height: 250px;
+	margin: 0px auto 0px auto;
+}
+
+.footer-content h6, p{
+	margin: 0px;
+	padding: 20px 20px 0px 20px;
+}
+
+.footer-content li{
+	padding: 5px 20px 0px 20px;
+}
+
+.footer-about{
+	width: 100%;
+	height: 200px;
+}
+
+.footer-nav{
+	width: 100%;
+	height: 200px;
+}
+
+.footer-logo{
+	float:left;
+	display: inline-block;
+	width: 350px;
+	height: 130px;
+	margin: 60px auto 10px auto;
+}
+
+
+
